@@ -73,7 +73,7 @@ if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
   echo "Running npm install"
   eval npm install
-   echo "Running npm run build"
+  echo "Running npm run build.."
   eval npm run build
   exitWithMessageOnError "npm failed"
  cd - > /dev/null
