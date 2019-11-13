@@ -27,6 +27,6 @@ export async function startNextApp(
   app.get('*', (req: express$Request, res: express$Response) => {
     return nextHandler(req, res);
   });
-
-  startServer(server, 3000);
+  var port = process.env.PORT || 3000;
+  startServer(server, port);
 }
