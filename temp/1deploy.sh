@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#
 # ----------------------
 # KUDU Deployment Script
 # Version: {Version}
