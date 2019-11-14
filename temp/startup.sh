@@ -1,4 +1,16 @@
 #!/bin/bash
 
 cd /home/site/wwwroot
-pm2 start ecosystem.config.js --no-daemon
+INSTALL_DIR=/home/site/wwwroot/install.txt
+
+if [-d "$INSTALL_DIR"]; then
+    echo "Npm was executed"
+
+else
+    echo "Building app"
+    npm install
+    npm run build
+    touch install.txt
+fi
+
+yarn run start
