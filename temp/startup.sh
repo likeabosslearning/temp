@@ -1,15 +1,15 @@
 #!/bin/bash
 
 cd /home/site/wwwroot
-INSTALL_DIR=/home/site/wwwroot/install.txt
+SERVERNAME=$(hostname)
 
-if [ -f "$INSTALL_DIR" ]; then
+if [ -f "$SERVERNAME" ]; then
     echo "Npm was executed"
 else
     echo "Running npm install & npm run build"
     npm install
     npm run build
-    touch install.txt
+    touch "$SERVERNAME"
 fi
 
 yarn run start
