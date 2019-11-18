@@ -3,7 +3,7 @@ FROM node:11.7.0-stretch
 # Create app directory
 WORKDIR /opt/app
 
-COPY startup /opt/startup
+COPY temp/startup /opt/startup
 
 # Install Tools
 RUN apt-get update \
@@ -15,18 +15,18 @@ RUN npm install -g pm2 \
     && echo "cd /opt/app" >> /etc/bash.bashrc \
     && chmod 755 /opt/startup/init_container.sh
 
-COPY sshd_config /etc/ssh/
+COPY temp/sshd_config /etc/ssh/
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 
-COPY package*.json ./
+COPY temp/package*.json ./
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 
 # Bundle app source
-COPY . .
+COPY temp/. .
 RUN npm run build
 
 EXPOSE 3000
