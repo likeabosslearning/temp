@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /home/site/wwwroot
-SERVERNAME=$(hostname)
+SERVERNAME=$COMPUTERNAME
 
 if [ -f "$SERVERNAME" ]; then
     echo "Npm was executed"
